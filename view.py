@@ -6,3 +6,4 @@ def index():
     name = 'Nikolai'
     return render_template('index.html', n=name)
 
+
