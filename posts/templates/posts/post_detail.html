@@ -6,6 +6,24 @@
 
 {% block content %}
     <h1>{{ post.title }}</h1>
-              <br>
-               <p>{{ post.text }}</p>
+<br>
+<br>
+
+
+                <div class="tags">
+                    {% for tag in tags %}
+                        <a href="{{url_for('posts.tag_detail', slug=tag.slug)}}"> 
+                            <span class="badge badge-primary">{{tag.name}}</span>
+                        </a>
+                     {% endfor %}
+                </div>
+    <div class="conteiner">
+        <div class="row">
+            <div class="content">
+                <span>
+                    {{ post.text }}
+                </span>
+            </div>
+        </div>
+    </div>
 {% endblock %}

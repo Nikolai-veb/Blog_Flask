@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask import render_template
 
-from models import Posts
+from models import Posts, Tag
 
 posts = Blueprint('posts', __name__, template_folder='templates')
 
@@ -14,4 +14,15 @@ def index():
 @posts.route('/<slug>')
 def post_detail(slug):
     post = Posts.query.filter(Posts.slug==slug).first()
-    return render_template('posts/post_detail.html', post=post)
+    tags = post.tags
+    return render_template('posts/post_detail.html', post=post, tags=tags)
+
+
+@posts.route('/tag/<slug>')
+def tag_detail(slug):
+    tag = Tag.query.filter(Tag.slug==slug).first()
+    posts = tag.posts
+    return render_template('posts/tag_detail.html', tag=tag, posts=posts)
+
+
+
