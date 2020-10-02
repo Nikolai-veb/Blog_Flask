@@ -26,4 +26,10 @@
         </div>
     </div>
 </div>
+
+<div class="button">
+    <a class="btn" href="{{url_for('posts.edit_post', slug=post.slug)}}">
+        <button class="btn btn-primary">EDIT POST</button>
+    </a>
+</div>
 {% endblock %}
