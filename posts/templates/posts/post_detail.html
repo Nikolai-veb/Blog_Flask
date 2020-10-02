@@ -6,17 +6,16 @@
 
 {% block content %}
     <h1>{{ post.title }}</h1>
-<br>
-<br>
-
-
-                <div class="tags">
-                    {% for tag in tags %}
-                        <a href="{{url_for('posts.tag_detail', slug=tag.slug)}}"> 
-                            <span class="badge badge-primary">{{tag.name}}</span>
-                        </a>
-                     {% endfor %}
-                </div>
+          <div class="col-md-6">
+            <div class="tags">
+                {% for tag in tags %}
+                <a href="{{url_for('posts.tag_detail', slug=tag.slug)}}"> 
+                  <span class="badge badge-primary">{{tag.name}}</span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+<div class="col-md-7">
     <div class="conteiner">
         <div class="row">
             <div class="content">
@@ -26,4 +25,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
